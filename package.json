@@ -1,0 +1,33 @@
+{
+  "name": "server-ticket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "ts-standard --fix .",
+    "dev": "nodemon dist/index.js",
+    "phoenix": "rm -rf ./node_modules package-lock.json && npm i"
+  },
+  "keywords": [],
+  "author": "Jose Olemar <joseluis19963@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.17.1",
+    "socket.io": "4.4.0"
+  },
+  "devDependencies": {
+    "@types/cors": "2.8.12",
+    "@types/express": "4.17.13",
+    "@types/socket.io": "3.0.2",
+    "ts-standard": "11.0.0"
+  },
+  "eslintConfig": {
+    "parser": "./tsconfig.json",
+    "extends": "./node_modules/ts-standard/eslintrc.json",
+    "ignorePatterns": [
+      "node_modules/**",
+      "dist/**"
+    ]
+  }
+}
