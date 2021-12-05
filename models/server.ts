@@ -4,7 +4,7 @@ import http from 'http'
 import socketIO from 'socket.io'
 
 import { SERVER_PORT } from '../global/environment'
-// import * as socket from '../sockets/socket'
+import * as socket from '../sockets/socket'
 
 export default class Server {
   public app: express.Application
@@ -27,6 +27,16 @@ export default class Server {
 
   private escucharSockets (): void {
     console.log('🧏‍♂️ Escuchando todas las conexiones - ⚡sockets')
+
+    this.io.on('connection', cliente => {
+      // Conectar cliente con el servidor
+      socket.conectarCliente(cliente)
+
+      socket.ticket(cliente, this.io)
+
+      // Desconexion del cliente
+      socket.desconectar(cliente, this.io)
+    })
   }
 
   // Iniciar servidor
